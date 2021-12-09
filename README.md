@@ -97,6 +97,8 @@ if menu == "t" or menu == "T":
  data["tugas"].append(int(input("Nilai Tugas :")))
 ```        
 
+![Gambar 2](screenshot/img1.PNG)         
+
 Selanjutnya ada menu lihat data. Untuk mengakses menu ini user bisa ketik **L** atau **l** dan nanti akan ada tampilan tabel yang berisi data data yang sudah ditambahkan tadi. Kita gunakan ***if len(data["nama"]) != 0*** yang artinya jika ada data maka tabel akan menampilkan keseluruhan data sebanyak n kali sesuai dengan ***len(data["nama"])*** dan jika tidak ada data sama sekali maka tabel akan menampilkan tulisan ***TIDAK ADA DATA***.          
 
 ```bash
@@ -119,3 +121,10 @@ elif menu == "l" or menu == "L":
      print("                         TIDAK ADA DATA                               ")      
  print("==========================================================================")
 ```           
+
+![Gambar 3](screenshot/img2.PNG)         
+![Gambar 4](screenshot/img3.PNG)         
+
+```bash
+
+```          
