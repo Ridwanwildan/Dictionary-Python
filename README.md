@@ -138,10 +138,10 @@ elif menu == "u" or menu == "U":
      ubah = int(input("Data nomor berapa yang mau diubah ? "))
      if len(data["nama"]) >= ubah:
          print("\nData ke -",ubah)
-         print("Nama sebelumnya :", data["nama"][ubah-1])
-         data["nama"][ubah-1] = input("Masukkan Nama yang baru : ")
          print("\nNIM sebelumnya :", data["nim"][ubah-1])
-         data["nim"][ubah-1] = input("Masukkan NIM yang baru : ")
+         data["nim"][ubah-1] = input("Masukkan NIM yang baru : ")            
+         print("\nNama sebelumnya :", data["nama"][ubah-1])
+         data["nama"][ubah-1] = input("Masukkan Nama yang baru : ")
          print("\nNilai tugas sebelumnya :", data["tugas"][ubah-1])
          data["tugas"][ubah-1] = int(input("Masukkan Nilai tugas yang baru : "))
          print("\nNilai UTS sebelumnya :", data["uts"][ubah-1])
@@ -202,6 +202,36 @@ Berikutnya ada menu cari data. Untuk masuk kesini ketik **C** atau **c**. Dimenu
 
 ![Gambar 8](screenshot/img7.PNG)          
 
-NIM 312110028 (Sugeng Rahayu) sudah tidak ada karena tadi sudah kita hapus.       
+NIM 312110028 (data ke - 2) sudah tidak ada karena tadi sudah kita hapus.       
 
 ![Gambar 9](screenshot/img8.PNG)          
+
+Menu keluar digunakan user untuk keluar dari program kita. Dengan ketik **K** atau **k** maka while loop yang kita punya akan bernilai false karena didalam sini ada perintah break.           
+
+```bash
+# menu keluar
+elif menu == "k" or menu == "K":
+ print("\nAnda telah keluar")
+ print("Terimakasih")
+ break
+```          
+
+![Gambar 10](screenshot/img9.PNG)          
+
+Terakhir supaya program tidak error ketika user mengetik sembarangan huruf atau salah ketik, kita bisa menambahkan program ini :        
+
+```bash
+ # menu salah ketik
+ else:
+     print("\nMaaf perintah yang diketik salah")
+     print("Ketik L : Untuk melihat data")
+     print("Ketik T : Untuk menambahkan data")
+     print("Ketik U : Untuk mengubah data")
+     print("Ketik H : Untuk menghapus data")
+     print("Ketik C : Untuk mencari data")
+     print("Ketik K : Untuk keluar")
+```              
+
+![Gambar 11](screenshot/img10.PNG)          
+
+Terimakasih.       
