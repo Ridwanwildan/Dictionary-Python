@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Ultimate"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-12-09 09:03:16 AM"/>
+        <attribute name="created" value="VWx0aW1hdGU7REVTS1RPUC1RRFVRS1VKOzIwMjEtMTItMDk7MDg6MDg6MDkgQU07MzI0MA=="/>
+        <attribute name="edited" value="VWx0aW1hdGU7REVTS1RPUC1RRFVRS1VKOzIwMjEtMTItMDk7MDk6MDM6MTYgQU07NTszMzQ2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="NIM, Nama" type="String" array="False" size=""/>
+            <declare name="NilaiTugas, NilaiUTS, NilaiUAS" type="Integer" array="False" size=""/>
+            <while expression="WhileTrue">
+                <input variable="Menu"/>
+                <if expression="Menu = &quot;T&quot;">
+                    <then>
+                        <input variable="NIM"/>
+                        <input variable="Nama"/>
+                        <input variable="NilaiTugas"/>
+                        <input variable="NilaiUTS"/>
+                        <input variable="NilaiUAS"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="Menu = &quot;L&quot;">
+                    <then>
+                        <if expression="lengthNama [ i ] != 0">
+                            <then>
+                                <output expression="NIM [ i ]" newline="True"/>
+                                <output expression="Nama [ i ]" newline="True"/>
+                                <output expression="NilaiTugas [ i ]" newline="True"/>
+                                <output expression="NilaiUTS [ i ]" newline="True"/>
+                                <output expression="NilaiUAS [ i ]" newline="True"/>
+                                <output expression="NilaiTugas [ i ] *30/100 + NilaiUTS [ i ] *35/100 + NilaiUAS [ i ] *35/100" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Tidak ada data&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="Menu = &quot;U&quot;">
+                    <then>
+                        <if expression="lengthNama [ i ] != 0">
+                            <then>
+                                <input variable="NomorData"/>
+                                <comment text="Data nomor berapa yang mau diubah ?"/>
+                                <if expression="lengthNama [ i ] &gt;= NomorData">
+                                    <then>
+                                        <input variable="NIM [ NomorData ]"/>
+                                        <input variable="Nama [ NomorData ]"/>
+                                        <input variable="NilaiTugas [ NomorData ]"/>
+                                        <input variable="NilaiUTS [ NomorData ]"/>
+                                        <input variable="NilaiUAS [ NomorData ]"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Data ke - n  tidak ada&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <output expression="&quot;Tidak ada data yang bisa diubah&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="Menu = &quot;H&quot;">
+                    <then>
+                        <if expression="lengthNama [ i ] != 0">
+                            <then>
+                                <input variable="NomorData"/>
+                                <comment text="Data nomor berapa yang mau dihapus ?"/>
+                                <if expression="lengthNama [ i ] &gt;= NomorData">
+                                    <then>
+                                        <output expression="deleteData[ NomorData ]" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;Data ke - n  tidak ada&quot;" newline="True"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <output expression="&quot;Tidak ada data yang bisa dihapus&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="Menu = &quot;C&quot;">
+                    <then>
+                        <input variable="Cari"/>
+                        <comment text="Masukkan NIM atau Nama yang dicari"/>
+                        <if expression="Cari = NIM [ i ] or cari = Nama [ i ]">
+                            <then>
+                                <output expression="&quot;Ada didalam data&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Tidak ada didalam data&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="Menu = &quot;K&quot;">
+                    <then>
+                        <call expression="break"/>
+                        <comment text="While = FALSE"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="Menu != &quot;L&quot; or Menu != &quot;T&quot; or Menu != &quot;U&quot; or Menu != &quot;H&quot; or Menu != &quot;C&quot; or Menu != &quot;K&quot;">
+                    <then>
+                        <output expression="&quot;Perintah yang diketik salah&quot;" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
