@@ -66,7 +66,56 @@ kontak["no"].remove("088999776")
 
 ## Tugas      
 
-Dalam program ini, kita akan membuat program sederhana yang bisa menginput nilai mahasiswa, mengubah values nya, menghapus data nya, dan bisa kita cari. Kemudian data yang sudah kita input bisa ditampilkan dalam bentuk tabel.       
+Dalam tugas ini, kita akan membuat program sederhana yang bisa menginput nilai mahasiswa, mengubah values nya, menghapus data nya, dan bisa kita cari. Kemudian data yang sudah kita input bisa ditampilkan dalam bentuk tabel.       
 
-![Gambar 1](screenshot/flowchart.png)            
+![Gambar 1](screenshot/flowchart.png)         
 
+Pertama deklarasikan beberapa dictionary yang didalamnya terdapat values yang masih kosong dan nantinya bisa kita inputkan secara bebas. Untuk mengakses menu menu nya gunakan while loop.         
+```bash
+data = {
+    "nim":[],
+    "nama":[],
+    "uts":[],
+    "uas":[],
+    "tugas":[]
+}
+
+while True:
+ menu = input("\n[(L)ihat, (T)ambah, (U)bah, (H)apus, (C)ari (K)eluar]:")
+```       
+
+Jika user mengetik **T** atau **t** maka nantinya dia akan masuk kedalam menu tambah data. Didalam menu ini disediakan inputan untuk mengisi values dari dictionary yang masih kosong tadi. Kemudian kita pakai ***append()*** untuk memasukkan inputannya kedalam values.       
+
+```bash
+# menu tambah data
+if menu == "t" or menu == "T":
+ print("\nTambah Data")
+ data["nim"].append(input("NIM         :"))
+ data["nama"].append(input("Nama        :"))
+ data["uts"].append(int(input("Nilai UTS   :")))
+ data["uas"].append(int(input("Nilai UAS   :")))
+ data["tugas"].append(int(input("Nilai Tugas :")))
+```        
+
+Selanjutnya ada menu lihat data. Untuk mengakses menu ini user bisa ketik **L** atau **l** dan nanti akan ada tampilan tabel yang berisi data data yang sudah ditambahkan tadi. Kita gunakan ***if len(data["nama"]) != 0*** yang artinya jika ada data maka tabel akan menampilkan keseluruhan data sebanyak n kali sesuai dengan ***len(data["nama"])*** dan jika tidak ada data sama sekali maka tabel akan menampilkan tulisan ***TIDAK ADA DATA***.          
+
+```bash
+# menu lihat data
+elif menu == "l" or menu == "L":
+ print("Daftar Nilai")
+ print("==========================================================================")
+ print("| No  |          Nama           |    NIM    | TUGAS | UTS | UAS |  AKHIR |")
+ print("==========================================================================")
+ if len(data["nama"]) != 0:
+     for i in range(len(data["nama"])):
+         print("|", i+1, "  |", end="")
+         print('{0:<25}'.format(data["nama"][i]), end="")
+         print("|", data["nim"][i], end="")
+         print(" |", data["tugas"][i], end="")
+         print("    |", data["uts"][i], end="")
+         print("  |", data["uas"][i], " | ", end="")
+         print(f'{(data["tugas"][i]*30/100) + (data["uts"][i]*35/100) + (data["uas"][i]*35/100) :.2f}', " |")
+ else:
+     print("                         TIDAK ADA DATA                               ")      
+ print("==========================================================================")
+```           
