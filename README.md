@@ -125,6 +125,36 @@ elif menu == "l" or menu == "L":
 ![Gambar 3](screenshot/img2.PNG)         
 ![Gambar 4](screenshot/img3.PNG)         
 
-```bash
 
+Berikutnya user bisa mengubah data yang sudah diinput tadi dengan masuk ke menu ubah data. ketik **U** untuk masuk kesini. Jika tidak ada data sama sekali, menu ini akan menampilkan ***Tidak ada data yang bisa diubah*** dan jika user mengetik nomor data yang datanya tidak ada maka menu ini akan menampilkan ***data ke - n tidak ada***.        
+
+Untuk mengubah datanya kita gunakan ***data["nama"][ubah-1] = input("Masukkan Nama yang baru : ")***. ***ubah*** akan berisi nomor yang diisi user kemudian dikurangi 1 karena index list dimulai dari angka 0.         
+
+```bash
+# menu ubah data
+elif menu == "u" or menu == "U":
+ if len(data["nama"]) != 0:
+     print("Ubah Data")
+     ubah = int(input("Data nomor berapa yang mau diubah ? "))
+     if len(data["nama"]) >= ubah:
+         print("\nData ke -",ubah)
+         print("Nama sebelumnya :", data["nama"][ubah-1])
+         data["nama"][ubah-1] = input("Masukkan Nama yang baru : ")
+         print("\nNIM sebelumnya :", data["nim"][ubah-1])
+         data["nim"][ubah-1] = input("Masukkan NIM yang baru : ")
+         print("\nNilai tugas sebelumnya :", data["tugas"][ubah-1])
+         data["tugas"][ubah-1] = int(input("Masukkan Nilai tugas yang baru : "))
+         print("\nNilai UTS sebelumnya :", data["uts"][ubah-1])
+         data["uts"][ubah-1] = int(input("Masukkan Nilai UTS yang baru : "))
+         print("\nNilai UAS sebelumnya :", data["uas"][ubah-1])
+         data["uts"][ubah-1] = int(input("Masukkan Nilai UAS yang baru : "))
+     else:
+         print("Data ke -", ubah, "tidak ada")
+ else:
+     print("\nTidak ada data yang bisa diubah")
 ```          
+
+![Gambar 5](screenshot/img4.PNG)         
+
+Data ke - 3 tidak ada karena kita hanya memasukkan dua data saja.      
+![Gambar 6](screenshot/img5.PNG)         
