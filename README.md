@@ -64,3 +64,9 @@ kontak["nama"].remove("Dina")
 kontak["no"].remove("088999776")
 ```               
 
+## Tugas      
+
+Dalam program ini, kita akan membuat program sederhana yang bisa menginput nilai mahasiswa, mengubah values nya, menghapus data nya, dan bisa kita cari. Kemudian data yang sudah kita input bisa ditampilkan dalam bentuk tabel.       
+
+![Gambar 1](screenshot/flowchart.png)            
+
