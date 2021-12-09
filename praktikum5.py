@@ -78,7 +78,7 @@ while True:
  # menu cari data
  elif menu == "c" or menu == "C":
      print("\nCari Data")
-     cari = (input("Masukkan NIM atau Nama yang : "))
+     cari = (input("Masukkan NIM atau Nama : "))
      a = cari in data["nim"]
      b = cari in data["nama"]
      if a == True or b == True:
