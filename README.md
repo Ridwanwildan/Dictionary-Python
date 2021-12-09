@@ -126,7 +126,7 @@ elif menu == "l" or menu == "L":
 ![Gambar 4](screenshot/img3.PNG)         
 
 
-Berikutnya user bisa mengubah data yang sudah diinput tadi dengan masuk ke menu ubah data. ketik **U** untuk masuk kesini. Jika tidak ada data sama sekali, menu ini akan menampilkan ***Tidak ada data yang bisa diubah*** dan jika user mengetik nomor data yang datanya tidak ada maka menu ini akan menampilkan ***data ke - n tidak ada***.        
+Berikutnya user bisa mengubah data yang sudah diinput tadi dengan masuk ke menu ubah data. ketik **U** atau **u** untuk masuk kesini. Jika tidak ada data sama sekali, menu ini akan menampilkan ***Tidak ada data yang bisa diubah*** dan jika user mengetik nomor data yang datanya tidak ada maka menu ini akan menampilkan ***data ke - n tidak ada***.        
 
 Untuk mengubah datanya kita gunakan ***data["nama"][ubah-1] = input("Masukkan Nama yang baru : ")***. ***ubah*** akan berisi nomor yang diisi user kemudian dikurangi 1 karena index list dimulai dari angka 0.         
 
@@ -158,3 +158,50 @@ elif menu == "u" or menu == "U":
 
 Data ke - 3 tidak ada karena kita hanya memasukkan dua data saja.      
 ![Gambar 6](screenshot/img5.PNG)         
+
+
+Menu hapus data. Untuk masuk ke menu ini ketik **H** atau **h**. User bisa bebas data ke berapa yang mau dihapus. nantinya nama, nim, nilai tugas, nilai uts, nilai uas dari data tersebut akan terhapus. menu ini akan menampilkan ***Tidak ada data yang bisa dihapus*** dan jika user mengetik nomor data yang datanya tidak ada maka menu ini akan menampilkan ***data ke - n tidak ada***.       
+
+Untuk menghapusnya gunakan ***del data["nim"][hapus-1]***. ***hapus*** akan berisi nomor yang diisi user kemudian dikurangi 1 karena index list dimulai dari angka 0.         
+
+```bash
+# menu hapus data
+elif menu == "h" or menu == "H":
+ if len(data["nama"]) != 0:
+     print("\nHapus Data")
+     hapus = int(input("Data nomor berapa yang mau dihapus ? "))
+     if len(data["nama"]) >= hapus:
+         del data["nim"][hapus-1]
+         del data["nama"][hapus-1]
+         del data["tugas"][hapus-1]
+         del data["uts"][hapus-1]
+         del data["uas"][hapus-1]
+         print("Data ke -", hapus, "berhasil dihapus")
+     else:
+         print("Data ke -", hapus, "tidak ada")
+ else:
+     print("\nTidak ada data yang bisa dihapus")
+```           
+
+![Gambar 7](screenshot/img6.PNG)          
+
+Berikutnya ada menu cari data. Untuk masuk kesini ketik **C** atau **c**. Dimenu ini user bisa mencari dan memastikan NIM atau Nama yang dicari ada didalam data atau tidak ada. Disini kita menggunakan dua buah pernyataan boolean yaitu ***a = cari in data["nim"]*** dan ***b = cari in data["nama"]***. Jika ***a*** atau ***b*** bernilai true artinya NIM atau Nama yang dicari ada didalam data. Dan jika bernilai false maka akan menampilkan ***Tidak ada didalam data***.           
+
+```bash
+ # menu cari data
+ elif menu == "c" or menu == "C":
+     print("\nCari Data")
+     cari = (input("Masukkan NIM atau Nama yang : "))
+     a = cari in data["nim"]
+     b = cari in data["nama"]
+     if a == True or b == True:
+         print(cari, "Ada didalam data")
+     else:
+         print(cari, "Tidak ada didalam data")
+```          
+
+![Gambar 8](screenshot/img7.PNG)          
+
+NIM 312110028 (Sugeng Rahayu) sudah tidak ada karena tadi sudah kita hapus.       
+
+![Gambar 9](screenshot/img8.PNG)          
